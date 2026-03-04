@@ -1,0 +1,52 @@
+x-smartstay: &smartstay
+  image: smartstay-ai:local
+  build:
+    context: ..
+    dockerfile: backend/Dockerfile
+
+services:
+  indexer:
+    <<: *smartstay
+    command: ["python", "-m", "rag.build_index"]
+    volumes:
+      - smartstay-data:/app/data
+    restart: "no"
+
+  api:
+    <<: *smartstay
+    ports:
+      - "8000:8000"
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: smartstay-qwen
+      CRM_DB_PATH: /app/data/crm.sqlite3
+      PIPER_MODEL_PATH: /models/en_US-lessac-medium.onnx
+      PIPER_CONFIG_PATH: /models/en_US-lessac-medium.onnx.json
+      PIPER_LENGTH_SCALE: "1.0"
+    volumes:
+      - smartstay-data:/app/data
+      - smartstay-calendars:/app/calendars
+      - ../models:/models:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      indexer:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  mcp:
+    <<: *smartstay
+    command: ["python", "-m", "tools.mcp_server"]
+    ports:
+      - "8001:8001"
+    environment:
+      MCP_PORT: "8001"
+      CRM_DB_PATH: /app/data/crm.sqlite3
+    volumes:
+      - smartstay-data:/app/data
+      - smartstay-calendars:/app/calendars
+    restart: unless-stopped
+
+volumes:
+  smartstay-data:
+  smartstay-calendars:
