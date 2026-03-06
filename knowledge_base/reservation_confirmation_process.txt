@@ -1,0 +1,4 @@
+﻿After a reservation is created, the system sends an automated confirmation email containing booking ID, room type, check-in and check-out dates, occupancy, and selected inclusions. Reservations team reviews same-day arrivals every hour to validate payment status and special instructions.
+
+If a confirmation email is not received within 15 minutes, guests should contact reservations for manual verification. Any change to dates, occupancy, or room type generates an updated confirmation number sequence and revised pricing summary. Only the latest confirmation is considered valid for check-in and billing.
+

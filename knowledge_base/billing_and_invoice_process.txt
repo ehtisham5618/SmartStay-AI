@@ -1,0 +1,4 @@
+﻿Guest folios are updated in real time with room charges, outlet consumption, transport, and service add-ons. At checkout, the front desk presents an itemized invoice for verification before payment closure. Corporate bill-to-company instructions must be validated in advance.
+
+E-invoices are sent to the registered email within one hour after checkout completion. Invoice revisions require formal request and supporting details within 24 hours. Tax-compliant invoice formats are available for business travelers, including company name, tax identifier, and address fields as required by regulation.
+

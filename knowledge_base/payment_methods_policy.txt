@@ -1,0 +1,4 @@
+﻿The hotel accepts major credit cards, debit cards, and approved digital wallet transactions. Cash payments are accepted in local currency only and may require advance identification verification for high-value settlement.
+
+For card transactions, the cardholder must be present with matching government ID unless pre-authorized corporate billing terms are in place. Third-party card payments require signed authorization and security validation. Failed payment attempts can result in reservation release if guarantee requirements are not fulfilled by cut-off time.
+

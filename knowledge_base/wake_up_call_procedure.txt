@@ -1,0 +1,4 @@
+﻿Wake-up calls can be scheduled through front desk or in-room system with up to three reminder slots. Guests are advised to set backup alarms for early departures. Confirmation is read back by agent to avoid timing errors.
+
+If a wake-up call fails to connect, a second attempt is made after two minutes. For airport departures, guests may request wake-up plus luggage assistance coordination. Call logs are retained for service quality auditing and dispute resolution, particularly for time-sensitive travel commitments.
+

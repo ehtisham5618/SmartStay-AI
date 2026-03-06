@@ -1,0 +1,4 @@
+﻿Room rates are based on category, occupancy, booking channel, and demand period. The published daily rate includes accommodation only unless a package explicitly states inclusions such as breakfast, transfer, or dining credit.
+
+Child policy, extra-bed charges, and promotional modifiers are applied during rate calculation. Long-stay pricing is structured in tier bands with nightly reductions after predefined thresholds. All prices are confirmed at final booking step and reflected in reservation summary before payment authorization.
+

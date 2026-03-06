@@ -1,0 +1,4 @@
+﻿Eligible refunds are processed to the original payment method once the reservation is validated as refundable under rate conditions. Standard card refunds are initiated within 3 business days, while bank transfer refunds may require up to 10 business days depending on intermediary processing.
+
+Refunds for shortened stays are calculated using the booked rate plan and actual consumed nights. Non-refundable deposits, service add-ons already consumed, and no-show penalties are not refundable. Guests disputing charges must submit a written claim within 7 days of departure with booking number, invoice copy, and payment reference.
+

@@ -1,0 +1,4 @@
+﻿Complimentary guest WiFi is available throughout rooms and public areas. Connect to the network named Hotel_Guest, open browser, and enter surname plus room number on the login page. Device registration is required once per stay unless session expires.
+
+For premium bandwidth plans, guests can upgrade through the portal with immediate activation. If login fails, verify room status with front desk and retry after two minutes. Streaming performance may vary during peak usage periods. Wired internet access is available in business center workstations.
+

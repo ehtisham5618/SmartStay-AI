@@ -1,0 +1,4 @@
+﻿A booking is treated as a no-show when the guest does not arrive by 6:00 AM the day after the scheduled check-in date and has not provided written notice. In no-show cases, the first night is charged under standard flexible rates, while non-refundable plans may be charged in full.
+
+Rooms are released after no-show processing, and remaining nights are cancelled unless the guest contacts reservations in advance. Reinstatement of cancelled nights depends on inventory and prevailing rates. Corporate and group contracts may include alternate no-show clauses documented in the agreement.
+
