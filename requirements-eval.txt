@@ -1,0 +1,3 @@
+# Install after the application dependencies in requirements.txt.
+websockets>=12,<17
+psutil>=5.9,<8

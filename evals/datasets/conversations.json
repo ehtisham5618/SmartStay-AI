@@ -1,0 +1,110 @@
+[
+  {
+    "id": "conv_01",
+    "title": "Check-in policy follow-up",
+    "turns": [
+      {"message": "What time can I check in?", "expect": {"source": "check_in_policy.txt", "contains_any": ["check-in", "3:00", "15:00"]}},
+      {"message": "And what identification should I bring?", "expect": {"source": "id_requirements_policy.txt", "contains_any": ["identification", "ID", "passport"]}}
+    ],
+    "memory_terms": ["check-in"]
+  },
+  {
+    "id": "conv_02",
+    "title": "Cancellation and refund",
+    "turns": [
+      {"message": "What is the cancellation policy?", "expect": {"source": "cancellation_policy.txt", "contains_any": ["cancel", "cancellation"]}},
+      {"message": "How long does an approved refund take?", "expect": {"source": "refund_policy.txt", "contains_any": ["refund", "business days"]}}
+    ],
+    "memory_terms": ["refund"]
+  },
+  {
+    "id": "conv_03",
+    "title": "CRM name persistence",
+    "turns": [
+      {"message": "My name is Alice Johnson.", "expect": {"tool": "crm_profile", "contains_any": ["Alice", "name"]}},
+      {"message": "What is my profile?", "expect": {"tool": "crm_profile", "contains_any": ["Alice", "profile"]}}
+    ],
+    "memory_terms": ["Alice"]
+  },
+  {
+    "id": "conv_04",
+    "title": "CRM contact update",
+    "turns": [
+      {"message": "My phone number is +92 300 1234567.", "expect": {"tool": "crm_profile", "contains_any": ["phone", "1234567"]}},
+      {"message": "Do you remember my phone number?", "expect": {"tool": "crm_profile", "contains_any": ["phone", "1234567"]}}
+    ],
+    "memory_terms": ["1234567"]
+  },
+  {
+    "id": "conv_05",
+    "title": "Room price calculation",
+    "turns": [
+      {"message": "Calculate a Deluxe room from 2026-06-01 to 2026-06-04 for 2 guests.", "expect": {"tool": "calculate_room_cost", "contains_any": ["450", "three", "3"]}},
+      {"message": "Is that the total for the entire stay?", "expect": {"contains_any": ["total", "stay", "450"]}}
+    ],
+    "memory_terms": ["Deluxe", "450"]
+  },
+  {
+    "id": "conv_06",
+    "title": "Calendar hold",
+    "turns": [
+      {"message": "Add a Suite stay from 2026-06-10 to 2026-06-13 to my calendar.", "expect": {"tool": "create_calendar_event", "contains_any": ["calendar", "hold", "2026-06-10"]}},
+      {"message": "Does that guarantee availability?", "expect": {"contains_any": ["confirm", "availability", "hold"]}}
+    ],
+    "memory_terms": ["Suite", "2026-06-10"]
+  },
+  {
+    "id": "conv_07",
+    "title": "Weather-assisted stay planning",
+    "turns": [
+      {"message": "What is the weather in Islamabad on 2026-06-01?", "expect": {"tool": "get_weather", "contains_any": ["Islamabad", "weather", "forecast"]}},
+      {"message": "Should I plan indoor hotel activities if it rains?", "expect": {"contains_any": ["indoor", "rain", "hotel"]}}
+    ],
+    "memory_terms": ["Islamabad"]
+  },
+  {
+    "id": "conv_08",
+    "title": "Pool and gym amenities",
+    "turns": [
+      {"message": "Does the hotel have a swimming pool?", "expect": {"source": "pool_rules.txt", "contains_any": ["pool", "swimming"]}},
+      {"message": "What about the gym rules?", "expect": {"source": "gym_rules.txt", "contains_any": ["gym", "fitness"]}}
+    ],
+    "memory_terms": ["gym"]
+  },
+  {
+    "id": "conv_09",
+    "title": "Out-of-domain refusal and recovery",
+    "turns": [
+      {"message": "Write a Python sorting algorithm.", "expect": {"refusal": true, "contains_any": ["hotel-related"]}},
+      {"message": "Okay, what time is check-out?", "expect": {"source": "check_out_policy.txt", "contains_any": ["check-out", "11:00"]}}
+    ],
+    "memory_terms": ["check-out"]
+  },
+  {
+    "id": "conv_10",
+    "title": "Pet policy edge case",
+    "turns": [
+      {"message": "Can I bring my dog?", "expect": {"source": "pet_policy.txt", "contains_any": ["pet", "animal"]}},
+      {"message": "It is a certified service animal.", "expect": {"source": "pet_policy.txt", "contains_any": ["service animal", "declare", "exception"]}}
+    ],
+    "memory_terms": ["service animal"]
+  },
+  {
+    "id": "conv_11",
+    "title": "Mixed RAG and calculator",
+    "turns": [
+      {"message": "What is the cancellation policy, and calculate a Standard room from 2026-07-01 to 2026-07-03?", "expect": {"source": "cancellation_policy.txt", "tool": "calculate_room_cost", "contains_any": ["cancel", "140"]}},
+      {"message": "Summarize both parts briefly.", "expect": {"contains_any": ["cancel", "140", "Standard"]}}
+    ],
+    "memory_terms": ["Standard", "cancel"]
+  },
+  {
+    "id": "conv_12",
+    "title": "Preference memory",
+    "turns": [
+      {"message": "I prefer a quiet room away from the lift.", "expect": {"tool": "crm_profile", "contains_any": ["preference", "quiet"]}},
+      {"message": "What room preference did I give you?", "expect": {"tool": "crm_profile", "contains_any": ["quiet", "lift"]}}
+    ],
+    "memory_terms": ["quiet", "lift"]
+  }
+]
