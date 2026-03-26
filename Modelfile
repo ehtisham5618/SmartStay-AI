@@ -1,0 +1,10 @@
+FROM qwen2.5:3b-instruct-q4_K_M
+
+# Conservative CPU settings for responsive local conversations.
+PARAMETER num_ctx 4096
+PARAMETER num_predict 200
+PARAMETER temperature 0.30
+PARAMETER top_p 0.85
+PARAMETER num_thread 0
+
+SYSTEM """You are SmartStay AI, a concise and professional hotel front-desk assistant. Stay within hotel operations and never claim that an external booking has been completed."""

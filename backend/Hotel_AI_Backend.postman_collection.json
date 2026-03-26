@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "SmartStay AI - Assignment 1",
+    "description": "REST and WebSocket checks for the local conversational system.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8000" },
+    { "key": "wsUrl", "value": "ws://localhost:8000/ws/chat" },
+    { "key": "voiceWsUrl", "value": "ws://localhost:8000/ws/voice" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health" }
+    },
+    {
+      "name": "Chat",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"What time is check-in?\"\n}"
+        },
+        "url": "{{baseUrl}}/api/chat"
+      }
+    },
+    {
+      "name": "Streaming Chat",
+      "request": {
+        "method": "GET",
+        "url": "{{wsUrl}}",
+        "description": "Open as a WebSocket request and send: {\"session_id\":\"postman-demo\",\"message\":\"I need a Deluxe room\"}"
+      }
+    },
+    {
+      "name": "Voice Readiness",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health/voice" }
+    },
+    {
+      "name": "Voice Conversation",
+      "request": {
+        "method": "GET",
+        "url": "{{voiceWsUrl}}",
+        "description": "Open as a WebSocket request. Send an audio_start JSON control frame, one complete WebM/Opus recording as a binary frame, then audio_end. See README.md for the event schema."
+      }
+    },
+    {
+      "name": "RAG Retrieval",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"What is the cancellation policy?\",\n  \"top_k\": 3\n}" },
+        "url": "{{baseUrl}}/api/retrieve"
+      }
+    },
+    {
+      "name": "Tool Schemas",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/tools" }
+    }
+  ]
+}
